@@ -1,0 +1,36 @@
+#configure pinecone index
+# 1. Khai báo API Key của bạn
+$PINECONE_API_KEY = "pcsk_7YUacp_C11W6eeUY3QwFnCk2o6ku9c4Lqm8FbvMf8P69rzdwiMus8uYSgRooApk2iNzB5i"
+
+# 2. Thiết lập Header
+$headers = @{
+    "Api-Key"      = $PINECONE_API_KEY
+    "Content-Type" = "application/json"
+    "accept"       = "application/json"
+}
+
+# 3. Định nghĩa cấu hình Index (Serverless cho tiết kiệm)
+$body = @{
+    name      = "cloud-sentinel-index"
+    dimension = 1536
+    metric    = "cosine"
+    spec      = @{
+        serverless = @{
+
+            cloud  = "aws"
+
+            region = "us-east-1"
+        }
+    }
+} | ConvertTo-Json
+
+# 4. Gọi API để tạo
+Invoke-RestMethod -Uri "https://api.pinecone.io/indexes" -Method Post -Headers $headers -Body $body
+
+# Kết quả
+name      : cloud-sentinel-index
+metric    : cosine
+dimension : 1536
+status    : @{ready=False; state=Initializing}
+host      : cloud-sentinel-index-5dwnclr.svc.aped-4627-b74a.pinecone.io
+spec      : @{serverless=}
