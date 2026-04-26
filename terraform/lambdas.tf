@@ -7,7 +7,7 @@ data "archive_file" "lambda_zip" {
   for_each    = toset(local.lambda_list)
   type        = "zip"
   source_dir  = "${path.module}/../src/${each.key}"
-  output_path = "${path.module}/${each.key}.zip"
+  output_path = "${path.module}/lambda_zips/${each.key}.zip"
 }
 
 resource "aws_lambda_function" "sentinel_lambdas" {
