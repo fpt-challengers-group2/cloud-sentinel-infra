@@ -22,5 +22,5 @@ Thumbs.db
 .env
 secret.tfvars
 
-.draft.txt
+draft.txt
 secret.tfvars
