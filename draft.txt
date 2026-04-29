@@ -1,6 +1,10 @@
 #configure pinecone index
 # 1. Khai báo API Key của bạn
+<<<<<<< HEAD
 $PINECONE_API_KEY = "pcsk_7YUacp_C11W6eeUY3QwFnCk2o6ku9c4Lqm8FbvMf8P69rzdwiMus8uYSgRooApk2iNzB5i"
+=======
+$PINECONE_API_KEY = "YOUR_PINECONE_API_KEY"
+>>>>>>> 41f859f1c178528f2674df38ccd609ade1562ac4
 
 # 2. Thiết lập Header
 $headers = @{
@@ -19,7 +23,11 @@ $body = @{
 
             cloud  = "aws"
 
+<<<<<<< HEAD
             region = "us-east-1"
+=======
+            region = "ap-southeast-1"
+>>>>>>> 41f859f1c178528f2674df38ccd609ade1562ac4
         }
     }
 } | ConvertTo-Json
