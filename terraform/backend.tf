@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = "cloud-sentinel-tf"  
+    bucket         = "cloud-sentinel-tf-154959838182-us"  
     key            = "terraform.tfstate"
-    region         = "ap-southeast-1"
+    region         = "us-east-1"
     encrypt        = true
     dynamodb_table = "cloud-sentinel-lockid"
   }
