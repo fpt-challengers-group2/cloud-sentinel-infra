@@ -20,5 +20,3 @@ terraform {
 provider "aws" {
   region = var.region
 }
-
-#ko cần porvider pinecone vì đã dùng SDK của Pinecone trong create_index_pc.py để tạo index, không cần Terraform quản lý index này
