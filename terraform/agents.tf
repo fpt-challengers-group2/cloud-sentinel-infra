@@ -2,7 +2,7 @@
 resource "aws_bedrockagent_agent" "supervisor" {
   agent_name                  = "${var.project_name}-supervisor"
   agent_resource_role_arn     = aws_iam_role.agent_role.arn
-  foundation_model            = "anthropic.claude-3-haiku-20240307-v1:0"
+  foundation_model            = "anthropic.claude-3-5-sonnet-20240620-v1:0"
   idle_session_ttl_in_seconds = 600
 
   instruction = <<EOT
@@ -27,12 +27,10 @@ PHASE 4 - ATTACKER & NETWORK ANALYSIS:
    - "attacker_ip": Source IP address (usually under service.action.networkConnectionAction).
    - "location": Country or Region of the source IP.
    - "action_protocol": Port and Protocol (TCP/UDP) used in the connection.
-OUTPUT REQUIREMENT (EXTREMELY STRICT):
-- YOU MUST NOT write any introductory or explanatory text.
-- YOU MUST NOT use tags like <result> or markdown blocks.
-- Your entire response MUST ONLY be the JSON object itself.
-- If you explain anything, the system will CRASH.
-- START your response with '{' and END it with '}'.
+OUTPUT REQUIREMENT (STRICT):
+- Your response MUST be a single, valid JSON object.
+- NO conversational text, NO "Here is your report", NO markdown formatting (DO NOT use ```json blocks).
+- The response must start with "{" and end with "}".
 EOT
 }
 
@@ -130,7 +128,7 @@ resource "aws_bedrockagent_agent_action_group" "ag_knowledge" {
 resource "aws_bedrockagent_agent" "advisor" {
   agent_name                  = "${var.project_name}-advisor"
   agent_resource_role_arn     = aws_iam_role.agent_role.arn
-  foundation_model            = "anthropic.claude-3-haiku-20240307-v1:0"
+  foundation_model            = "anthropic.claude-3-5-sonnet-20240620-v1:0"
   idle_session_ttl_in_seconds = 600
 
   instruction = <<EOT

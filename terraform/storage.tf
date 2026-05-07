@@ -22,7 +22,7 @@ resource "aws_dynamodb_table" "incident_history" {
 
 # --- S3: Lưu trữ báo cáo bảo mật ---
 resource "aws_s3_bucket" "reports" {
-  bucket = "${var.project_name}-reportss-${data.aws_caller_identity.current.account_id}"
+  bucket = "${var.project_name}-reports-${data.aws_caller_identity.current.account_id}"
 }
 
 resource "aws_s3_bucket_public_access_block" "reports_block" {
