@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "cloud-sentinel-tf-313712213904"  
+    bucket         = "cloud-sentinel-tfstate-linhhuyenanh-123"
     key            = "terraform.tfstate"
     region         = "ap-southeast-1"
     encrypt        = true

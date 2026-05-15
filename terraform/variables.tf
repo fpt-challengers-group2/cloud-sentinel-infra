@@ -11,12 +11,25 @@ variable "project_name" {
 }
 
 variable "pinecone_api_key" {
-  description = "API Key từ Pinecone (được nạp từ GitHub Secrets)"
+  description = "API Key từ Pinecone"
   type        = string
   sensitive   = true
 }
 
 variable "pinecone_host" {
-  description = "Host URL của Pinecone Index (được nạp từ GitHub Secrets)"
+  description = "Host URL của Pinecone Index"
   type        = string
+  sensitive   = true
+}
+
+variable "telegram_token" {
+  description = "Telegram Bot Token"
+  type        = string
+  sensitive   = true
+}
+
+variable "telegram_chat_id" {
+  description = "Telegram Group Chat ID"
+  type        = string
+  sensitive   = true
 }
